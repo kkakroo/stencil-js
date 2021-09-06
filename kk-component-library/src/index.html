@@ -4,11 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
-
+    <!-- Used by modern browsers -->
     <script type="module" src="/build/kk-component-library.esm.js"></script>
+    <!-- Intended for older browsers, nomodule tag gets ignored by new browsers that support module scripts -->
     <script nomodule src="/build/kk-component-library.js"></script>
   </head>
   <body>
+    <!-- Consuming the Web Component  -->
     <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
   </body>
 </html>
