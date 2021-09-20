@@ -6,6 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface KkBadge {
+        /**
+          * Type of the badge.
+         */
+        "type": 'info' | 'warning' | 'success' | 'error';
+    }
     interface KkButton {
     }
     interface MyComponent {
@@ -24,6 +30,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLKkBadgeElement extends Components.KkBadge, HTMLStencilElement {
+    }
+    var HTMLKkBadgeElement: {
+        prototype: HTMLKkBadgeElement;
+        new (): HTMLKkBadgeElement;
+    };
     interface HTMLKkButtonElement extends Components.KkButton, HTMLStencilElement {
     }
     var HTMLKkButtonElement: {
@@ -37,11 +49,18 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "kk-badge": HTMLKkBadgeElement;
         "kk-button": HTMLKkButtonElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface KkBadge {
+        /**
+          * Type of the badge.
+         */
+        "type"?: 'info' | 'warning' | 'success' | 'error';
+    }
     interface KkButton {
     }
     interface MyComponent {
@@ -59,6 +78,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "kk-badge": KkBadge;
         "kk-button": KkButton;
         "my-component": MyComponent;
     }
@@ -67,6 +87,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "kk-badge": LocalJSX.KkBadge & JSXBase.HTMLAttributes<HTMLKkBadgeElement>;
             "kk-button": LocalJSX.KkButton & JSXBase.HTMLAttributes<HTMLKkButtonElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
