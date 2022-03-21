@@ -12,7 +12,8 @@ export namespace Components {
          */
         "type": 'info' | 'warning' | 'success' | 'error';
     }
-    interface KkButton {
+    interface KkList {
+        "items": string[];
     }
     interface MyComponent {
         /**
@@ -36,11 +37,11 @@ declare global {
         prototype: HTMLKkBadgeElement;
         new (): HTMLKkBadgeElement;
     };
-    interface HTMLKkButtonElement extends Components.KkButton, HTMLStencilElement {
+    interface HTMLKkListElement extends Components.KkList, HTMLStencilElement {
     }
-    var HTMLKkButtonElement: {
-        prototype: HTMLKkButtonElement;
-        new (): HTMLKkButtonElement;
+    var HTMLKkListElement: {
+        prototype: HTMLKkListElement;
+        new (): HTMLKkListElement;
     };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -50,7 +51,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "kk-badge": HTMLKkBadgeElement;
-        "kk-button": HTMLKkButtonElement;
+        "kk-list": HTMLKkListElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -61,7 +62,8 @@ declare namespace LocalJSX {
          */
         "type"?: 'info' | 'warning' | 'success' | 'error';
     }
-    interface KkButton {
+    interface KkList {
+        "items"?: string[];
     }
     interface MyComponent {
         /**
@@ -79,7 +81,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "kk-badge": KkBadge;
-        "kk-button": KkButton;
+        "kk-list": KkList;
         "my-component": MyComponent;
     }
 }
@@ -88,7 +90,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "kk-badge": LocalJSX.KkBadge & JSXBase.HTMLAttributes<HTMLKkBadgeElement>;
-            "kk-button": LocalJSX.KkButton & JSXBase.HTMLAttributes<HTMLKkButtonElement>;
+            "kk-list": LocalJSX.KkList & JSXBase.HTMLAttributes<HTMLKkListElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

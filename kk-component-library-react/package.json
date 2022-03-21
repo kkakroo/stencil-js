@@ -1,7 +1,7 @@
 {
   "name": "kk-component-library-react",
   "sideEffects": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React specific wrapper for kk-component-library",
   "repository": {
     "type": "git",
@@ -46,6 +46,6 @@
     ]
   },
   "dependencies": {
-    "kk-component-library": "^0.0.1"
+    "kk-component-library": "^0.0.2"
   }
 }
